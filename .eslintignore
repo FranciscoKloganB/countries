@@ -1,0 +1,8 @@
+**/.gitignore
+**/coverage/
+.github/
+.husky/
+.vscode/
+dist/
+locales/
+node_modules/
