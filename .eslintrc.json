@@ -13,14 +13,26 @@
       "error",
       {
         "code": 88,
-        "tabWidth": 2
+        "tabWidth": 2,
+        "ignoreComments": true,
+        "ignoreStrings": true,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true
       }
     ],
     "no-only-tests/no-only-tests": "error",
     "quotes": [
       "error",
-      "double",
+      "single",
       { "avoidEscape": false, "allowTemplateLiterals": true }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["src/svg/*.ts"],
+      "rules": {
+        "max-len": "off"
+      }
+    }
+  ]
 }

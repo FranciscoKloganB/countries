@@ -1,231 +1,136 @@
-# repository-name
+# @franciscokloganb/countries
 
-<!-- TODO: Warning do not proceed without finishing this checklist  -->
-<!-- TODO: Read some https://blog.logrocket.com/the-complete-guide-to-publishing-a-react-package-to-npm/ -->
-<!-- TODO: Delete checklist when you are done -->
+This package provides a client and server friendly objects and functions that facilitate
+the way you build web-based forms that intended to collect user telephone details.
 
-If this is the first time the package is being setup by any team member
-ensure that all `todo-template-` annotations spread around the code have been
-resolved and deleted.
+With it you gain access to be country `dialCodes`, country `flags` and more.
 
-- **package.json**
+## Features
 
-  - [x] Set project `author` to `owner-or-organization`
-  - [x] Set project `name` to `@owner-or-organization/repository-name`
-  - [x] Set project `repository.url` to `git://github.com/owner-or-organization/repository-name.git`
-  - [x] Set project `publishConfig.registry` to `https://npm.pkg.github.com/owner-or-organization`
-  - [x] Set project `publishConfig.access` to according to your needs.
-        See [this](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#publishconfig),
-        and [this](https://docs.npmjs.com/cli/v8/using-npm/config#access)
+This package provides all countries with their flag emoji, flag svg and dial number code.
 
-- **.github/workflows/publish.yml**
+- Avoid `falsey` values as much as possible, e.g.: `null` or `undefined`;
+- Server-side-rendering compatible;
+- No external dependencies;
+- No opinions with respect to validation;
+  - Example below on how to achieve that using `zod` and `google-libphonenumber`;
+- No pollution of `globalThis` (a.k.a. `window`) on the client;
 
-  - [x] Set `jobs.steps.*.with.scope` to `@owner-or-organization`
-  - [x] Disable `publish.yml` workflow on GitHub if you prefer releasing through the [CLI](#publishing)
-
-- **readme.md**
-
-  - [ ] Set project `repository-name` as main heading
-  - [ ] Write a somewhat long description of the goals of the package
-  - [ ] If the package is simple add some basic usage on the `markdown` itself
-  - [ ] Otherwise setup a custom documentation page using any tool of your choice
-
-- **testpkg.sh**
-
-  - [ ] Update contents of `testpkg.sh`
-  - [ ] Update the imports on `app/index.ts` test file (tiny app to manually verify
-        package before running `npm run release`)
-
-- **miscellaneous**:
-  - [ ] Add more project `devDependencies`, e.g.: `react` and `react-dom`
-  - [ ] Add `peerDependencies` to ensure package consumers have required dependencies
-  - [ ] Add additional `prettier` or `eslint` plugins as required.
-  - [ ] Setup other testing and DX tools, e.g.: `cypress`, `react-testing-lib`, `storybook`
-
-## Description
-
-Packages can do many things for you. To name a few, these range from utility functions
-to complete frameworks, data structure management solutions or communication protocols.
-This example template provides a package with a single function named
-`toHumanReadableString`, which formats a data-like value to consistent string output.
-
-This could be useful to ensure our frontend consumers render data to the screen in
-similar fashion regardless of the original data value source.
-
-## Configuration
-
-Code quality is set up for you with `prettier`, `eslint`, `husky`, and
-`lint-staged`. Depending on the package goals, you might need to add some
-plugins. Adjust `package.json` accordingly.
-
-### Bundle Analysis
-
-[size limit](https://github.com/ai/size-limit) is set up to calculate
-the real cost of your library with `npm run size` and visualize the bundle
-with `npm run analyze`.
-
-### Jest
-
-Jest tests are set up to run with `npm test` or `npm test:headless`. If you
-are developing a package for `React.js` or `Next.js` further packages need to be
-added.
-
-### Path Aliases
-
-We use [alias-hq](https://github.com/davestewart/alias-hq) to simplify path
-aliasing during development; Configure paths once in `tsconfig.json` and have
-remaining tools like `jest` integrate automatically with the available
-`tsconfig` by invoking a simple function provided by `alias-HQ;
-
-### Dependencies
-
-Take care when adding new dependencies to the project. When you add a new
-production dependency (`dependencies` in `package.json`), these will also
-be installed a `production` or `development` dependencies in the consumer
-projects (depending on their usage of `--save-dev`). When you add a package to
-`devDependencies` these are not propagated to consumers. Ideally, if you want
-to ensure that consumers have a package installed on their project, that is
-needed for your project to work, without risking conflicts with them, you should
-declare such packages as `peerDependencies` which are installed in case the
-consumer does not have them yet. Otherwise `peerDependencies` ensures version
-the consumer has, is compatible with what is requested.
-
-#### TLDR
-
-- `dependencies` indirectly forces consumers to have your dependencies.
-- `devDependencies` do not affect consumers.
-- `peerDependencies` ensures consumers install the correct version of a packages you
-need to operate, but do not necessarely depend on.
-
-### Publishing
-
-Add all expected environment variables (see `.env.example`) to your `.zshrc` or
-`.bashrc` profile. Alternatively, install `direnv`, then, add a `.env` file
-in the root of the project containing those same environment variables.
-
-Finally, execute the commands below
+## Installation
 
 ```bash
-# Create a PAT (write package permissions) for your GitHub user on the website
-# This should be somewhere under Profile > Settings > Developer Settings
-# Export the following environment variables or use `direnv` / `dotenv`:
-export NPM_USER=<your_lowercased_github_username>
-export NPM_PASS=<your_github_pat_with_packages_write_permission>
-export NPM_EMAIL=<your_github_email>
-export NPM_REGISTRY=https://npm.pkg.github.com/
-export NPM_SCOPE=<owner-or-organization>
-# Source your profile and execute:
-npm-cli-login -u $NPM_USER -p $NPM_PASS -e $NPM_EMAIL -r $NPM_REGISTRY -s $NPM_SCOPE
-
-# Verify the previous process
-# Check global .npmrc (ensure you see your auth token (PAT) and the org registry)
-# Check also your `whoami` just in case
-cat ~/.npmrc
-npm whoami --scope=@owner-or-organization --registry=https://npm.pkg.github.com/
-
-# Kickstart the actual publishing process
-npm run release -- --first-release
-npm run release -- --release-as patch
-npm run release -- --release-as minor
-npm run release -- --release-as major
+npm install @franciscokloganb/countries
 ```
 
-#### What should I do before releasing?
+## Usage
 
-You should run a healthy amount of automated tests and ideally, test your
-library on a dummy-app, if it is somewhat complex; If it is a simple utility
-library you can tweak `./app/index.ts` and use `testpkg.sh` to print some
-`console.log` statements;
+For ease of use, the API outlined below (inspired in the Repository Pattern), is
+recommended. For details about the interfaces used by the methods, hover the function
+name on your IDE.
 
-#### What scripts run when releasing?
+- `findByCountryCode(code: string, opts?: IFilterOption): ICountry[]`
+- `findOneByCountryCode(code: string): ICountry | undefined`
+- `findByCountryDialCode(code: string): ICountry[]`
+- `findOneByCountryDialCode(code: string): ICountry | undefined`
+- `findByKeyword(keyword: string, option?: IFilterOption): ICountry[]`
+- `getAll(option?: IFilterOption): ICountry[]`
 
-When you run `npm run release -- args` a handful of precommand, command, and
-postcommand scripts are executed. Below is the order in which they resolve!
+If this API is not enough, you can access the countries raw data by importing
+the `countries` array. Notice however, that the objects within the array
+contain more falsey values. Each country implements the `ICountry` interface,
+just like the functions above. However, the functions above, return concrete
+`Country` implementations which deal with falsey values.
 
-```bash
-2. prerelease # checkout to main, updates local codebase and runs static-analysis
-3. prebuild # cleans current dist folder
-4. build # runs microbundle commands to generate a new dist folder
-5. release # executes at this point to generate standard-version and changelogs
-6. postrelease # pushes the created tags to remote and starts publishing process
-7. prepack # disables postinstall script to avoid conflict on consumers
-8. prepare # executes default prepare script (gzip of package.json.files + package.json itself)
-9. postpack # reenables postinstall script
-10. publish # pushes gzip to remote registry.
+```ts
+import { countries } from '@franciscokloganb/countries'
 ```
 
-#### How can consumers of our package use our utilities?
+You can may import SVG strings directly if you prefer those over the emoji
+flags found in `ICountry`-like objects.
 
-We export our configurations in multiple formats on `package.json`. See short
-example below:
+```ts
+import { FlagsSVGStrings } from '@franciscokloganb/countries'
+```
 
-```jsonc
-{
-  // only used by microbundle:
-  // define the entry point for your package
-  "source": "./index.ts",
-  // tells microbundle where to place the package's type definitions after TypeScript compilation
-  "types": "./dist/index.d.ts",
-  // CommonJS:
-  "main": "./dist/index.js",
-  "exports": {
-    // Node CommonJS:
-    "require": "./dist/index.js",
-    // Node EcmaSscriptModule (ModuleJS): import X from Y || import { a } from Y
-    "default": "./dist/index.modern.mjs"
-  },
-  // Bundler EcmaSscriptModule (ModuleJS, ModernJS):
-  "module": "./dist/index.module.js",
-  // Unpkg/CDN UMD:
-  "unpkg": "./dist/index.umd.js",
-  // We only publish our `dist/` folder, `README.md`, and `package.json` on npm
-  "files": ["dist"]
+If you prefer using real SVG files, you can import them from
+`@franciscokloganb/countries/dist/assets`. How you import those may depend on
+your bundler. An example with Vite is provided below.
+
+Create an utility file.
+
+```ts
+// Assets path is an absolute import
+const assets = 'node_modules/@franciscokloganb/countries/assets'
+
+function ipath(c: string) {
+  return new URL(`${assets}/${c.toLowerCase()}.svg`, import.meta.url).href
 }
+
+const FlagsSVG = {
+  portugal: ipath('pt'),
+} as const
+
+export { FlagsSVG }
+
 ```
 
-## Continuous Integration
+Use it in your `react`, `vue`, `angular` or whatever component
 
-### GitHub Actions
+```html
+<script setup lang="ts">
+import { FlagsSVG } from './your-utility-file'
+</script>
 
-Three actions are added by default:
+<template>
+  <img src={FlagsSVG.portugal} alt="the portuguese flag" />
+</template>
+```
 
-- `main` which installs deps w/ cache, lints, tests, and builds against
-  a _Node vs. OS_ matrix
-- `size` which comments cost comparison of your library on every pull
-  request using [`size-limit`](https://github.com/ai/size-limit)
-- `publish` a workflow that is currently under development, which would be
-  responsible for automatically publishing the repository to GitHub packages
-  when a new the non-draft release is created and published; Until this workflow
-  is ready, prefer using the manual approach detailed below.
+## Example usage with google-libphonenumber and zod
 
-## Module Formats
+```ts
+import { PhoneNumberUtil } from 'google-libphonenumber'
+import { findOneByDialCode } from '@franciscokloganb/countries'
+import { z } from 'zod'
 
-CJS, ESModules, and UMD module formats are supported. The appropriate paths are
-configured in `package.json`. Read more at [microbundle](https://github.com/developit/microbundle)
+const phoneUtil = PhoneNumberUtil.getInstance()
 
-## Named Exports
+const countryCallingCodeValidator = z.custom<string>(
+  (value) => typeof value === 'string' && /^\+\d{1,4}$/.test(value),
+  'country_calling_code_invalid_format'
+)
 
-Per Palmer Group guidelines, you should prefer [named exports.](https://github.com/palmerhq/typescript#exports).
-This allows code-splitting inside a consumer application instead of the exported
-library. E.g.: a react app using this lib will optimize this library better if
-we export named modules rather than default modules.
 
-## More information
+const telephoneSchema = z
+  .object({
+    countryCallingCode: z.string().pipe(countryCallingCodeValidator),
+    localNumber: z.string().min(4).max(16),
+  })
+  .superRefine(({ countryCallingCode, localNumber }, ctx) => {
+    const country = findOneByDialCode(countryCallingCode)
 
-### GitHub NPM registry (packages)
+    if (!country) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'country_calling_code_unknown',
+      })
 
-- [Setup CI Node](https://github.com/actions/setup-node#usage)
-- [Authenticating](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages)
-- [Publishing](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#publishing-a-package)
-- [Installing](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)
+      return
+    }
 
-### Bumping dependencies and updating package.json
+    const phoneNumber = phoneUtil.parse(localNumber, country.code)
+    const validPhoneNumber = phoneUtil.isValidNumberForRegion(phoneNumber, country.code)
 
-To update the project's dependencies and `package.json` at the same time
-run the commands below.
+    if (!validPhoneNumber) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'telephone_number_invalid_for_region',
+      })
+    }
+  })
 
-```bash
-npm install -g npm-check-updates
-ncu -u
-npm install
+type TelephoneSchema = z.infer<typeof telephoneSchema>
+
+export type { TelephoneSchema }
+export { telephoneSchema }
 ```

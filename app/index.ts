@@ -1,15 +1,15 @@
-// Since esModuleInterop the two statements below are equivalent;
+// With TypeScript `esModuleInterop` the two statements below are equivalent;
 // const utilsCJS = require("@franciscokloganb/countries");
-import * as pkg from "@franciscokloganb/countries";
-// Spread MJS import
-import { toHumanReadableString } from "@franciscokloganb/countries";
-
-// To test default MJS export (must be provided by your pacakge) uncomment below
-// import pkg from "@franciscokloganb/countries"
+import * as CountriesAliasPKG from '@franciscokloganb/countries'
+// Destruct MJS import
+import { countries } from '@franciscokloganb/countries'
+// Default MJS export
+import CountriesDefaultPKG from '@franciscokloganb/countries'
 // console.log("MJS Default Import:", pkg, pkg.toHumanReadableString("2022"));
 
-console.log("MJS Import:", toHumanReadableString("2022"));
-console.log("CJS Require:", pkg, pkg.toHumanReadableString("2023"));
+console.log('CJS Require Import:', typeof CountriesAliasPKG.countries !== 'undefined')
+console.log('MJS Destructured Import:', typeof countries !== 'undefined')
+console.log('MJS Default Import:', typeof CountriesDefaultPKG.countries !== 'undefined')
 
 /**
  * This file serves only to test your publishable NPM package various import
@@ -17,3 +17,15 @@ console.log("CJS Require:", pkg, pkg.toHumanReadableString("2023"));
  *
  * Use `npm link` and try to import your stuff in this file.
  */
+
+const assets = 'node_modules/@franciscokloganb/countries/assets'
+
+function ipath(c: string) {
+  return new URL(`${assets}/${c.toLowerCase()}.svg`, import.meta.url).href
+}
+
+const FlagsSVG = {
+  portugal: ipath('pt'),
+} as const
+
+export { FlagsSVG }
