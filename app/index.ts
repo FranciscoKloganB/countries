@@ -1,11 +1,11 @@
 // Since esModuleInterop the two statements below are equivalent;
-// const utilsCJS = require("@owner-or-organization/repository-name");
-import * as pkg from "@owner-or-organization/repository-name";
+// const utilsCJS = require("@franciscokloganb/countries");
+import * as pkg from "@franciscokloganb/countries";
 // Spread MJS import
-import { toHumanReadableString } from "@owner-or-organization/repository-name";
+import { toHumanReadableString } from "@franciscokloganb/countries";
 
 // To test default MJS export (must be provided by your pacakge) uncomment below
-// import pkg from "@owner-or-organization/repository-name"
+// import pkg from "@franciscokloganb/countries"
 // console.log("MJS Default Import:", pkg, pkg.toHumanReadableString("2022"));
 
 console.log("MJS Import:", toHumanReadableString("2022"));

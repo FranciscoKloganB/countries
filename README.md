@@ -10,18 +10,18 @@ resolved and deleted.
 
 - **package.json**
 
-  - [ ] Set project `author` to `owner-or-organization`
-  - [ ] Set project `name` to `@owner-or-organization/repository-name`
-  - [ ] Set project `repository.url` to `git://github.com/owner-or-organization/repository-name.git`
-  - [ ] Set project `publishConfig.registry` to `https://npm.pkg.github.com/owner-or-organization`
-  - [ ] Set project `publishConfig.access` to according to your needs.
+  - [x] Set project `author` to `owner-or-organization`
+  - [x] Set project `name` to `@owner-or-organization/repository-name`
+  - [x] Set project `repository.url` to `git://github.com/owner-or-organization/repository-name.git`
+  - [x] Set project `publishConfig.registry` to `https://npm.pkg.github.com/owner-or-organization`
+  - [x] Set project `publishConfig.access` to according to your needs.
         See [this](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#publishconfig),
         and [this](https://docs.npmjs.com/cli/v8/using-npm/config#access)
 
 - **.github/workflows/publish.yml**
 
-  - [ ] Set `jobs.steps.*.with.scope` to `@owner-or-organization`
-  - [ ] Disable `publish.yml` workflow on GitHub if you prefer releasing through the [CLI](#publishing)
+  - [x] Set `jobs.steps.*.with.scope` to `@owner-or-organization`
+  - [x] Disable `publish.yml` workflow on GitHub if you prefer releasing through the [CLI](#publishing)
 
 - **readme.md**
 

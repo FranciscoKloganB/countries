@@ -1,30 +1,61 @@
 {
-  "author": "owner-or-organization",
-  "name": "@owner-or-organization/repository-name",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/owner-or-organization/repository-name.git"
+  "author": "franciscokloganb",
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
+    "@jest/types": "^29.6.3",
+    "@size-limit/preset-small-lib": "^11.0.1",
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.5",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "alias-hq": "^6.2.3",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-no-only-tests": "^3.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "husky": "^8.0.3",
+    "jest": "^29.7.0",
+    "jest-when": "^3.6.0",
+    "lint-staged": "^15.2.0",
+    "microbundle": "^0.15.1",
+    "npm-cli-login": "^1.0.0",
+    "npm-run-all": "^4.1.5",
+    "pinst": "^3.0.0",
+    "prettier": "^3.1.1",
+    "rimraf": "^5.0.5",
+    "size-limit": "^11.0.1",
+    "standard-version": "^9.5.0",
+    "start-server-and-test": "^2.0.3",
+    "taze": "^0.13.0",
+    "ts-jest": "^29.1.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.3"
   },
-  "type": "module",
-  "version": "1.0.6",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/owner-or-organization"
+  "engines": {
+    "node": ">=20.10.0",
+    "npm": ">=10.2.3"
   },
-  "source": "./index.ts",
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
   "exports": {
     "require": "./dist/index.js",
     "default": "./dist/index.modern.mjs"
   },
-  "module": "./dist/index.module.js",
+  "main": "./dist/index.js",
+  "source": "./index.ts",
+  "types": "./dist/index.d.ts",
   "unpkg": "./dist/index.umd.js",
-  "files": [
-    "dist"
-  ],
-  "engines": {
-    "node": ">=16.14",
-    "npm": ">=8"
+  "module": "./dist/index.module.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "name": "@franciscokloganb/countries",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/franciscokloganb/countries.git"
   },
   "scripts": {
     "auth:npm": "npm-cli-login -u $NPM_USER -p $NPM_PASS -e $NPM_EMAIL -r $NPM_REGISTRY -s $NPM_SCOPE",
@@ -43,38 +74,10 @@
     "prerelease": "git checkout main && git pull && run-s cop build",
     "postrelease": "git push --follow-tags --no-verify && npm publish",
     "prepack": "pinst --disable",
-    "postpack": "pinst --enable"
+    "postpack": "pinst --enable",
+    "up": "taze major ",
+    "up:install": "taze major --install && npx taze -w && npm i"
   },
-  "devDependencies": {
-    "@commitlint/cli": "^17.0.2",
-    "@commitlint/config-conventional": "^17.0.2",
-    "@ianvs/prettier-plugin-sort-imports": "^3.4.2",
-    "@jest/types": "^28.1.1",
-    "@size-limit/preset-small-lib": "^7.0.8",
-    "@types/jest": "^28.1.1",
-    "@types/node": "^17.0.42",
-    "@typescript-eslint/eslint-plugin": "^5.27.1",
-    "@typescript-eslint/parser": "^5.27.1",
-    "alias-hq": "^5.4.0",
-    "eslint": "^8.17.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-no-only-tests": "^2.6.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^8.0.1",
-    "jest": "^28.1.1",
-    "jest-when": "^3.5.1",
-    "lint-staged": "^13.0.1",
-    "microbundle": "^0.15.0",
-    "npm-cli-login": "^1.0.0",
-    "npm-run-all": "^4.1.5",
-    "pinst": "^3.0.0",
-    "prettier": "^2.6.2",
-    "rimraf": "^3.0.2",
-    "size-limit": "^7.0.8",
-    "standard-version": "^9.5.0",
-    "start-server-and-test": "^1.14.0",
-    "ts-jest": "^28.0.4",
-    "tslib": "^2.4.0",
-    "typescript": "^4.7.3"
-  }
+  "type": "module",
+  "version": "1.0.0"
 }
