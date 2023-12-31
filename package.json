@@ -1,5 +1,19 @@
 {
+  "name": "@franciscokloganb/countries",
+  "description": "Provide all countries with their flag emoji, flag svg and dial number code.",
   "author": "franciscokloganb",
+  "exports": {
+    "require": "./dist/index.js",
+    "default": "./dist/index.modern.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "source": "./index.ts",
+  "types": "./dist/index.d.ts",
+  "unpkg": "./dist/index.umd.js",
+  "module": "./dist/index.module.js",
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
@@ -39,22 +53,9 @@
     "node": ">=20.10.0",
     "npm": ">=10.2.3"
   },
-  "exports": {
-    "require": "./dist/index.js",
-    "default": "./dist/index.modern.mjs"
-  },
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/index.js",
-  "source": "./index.ts",
-  "types": "./dist/index.d.ts",
-  "unpkg": "./dist/index.umd.js",
-  "module": "./dist/index.module.js",
   "publishConfig": {
     "access": "public"
   },
-  "name": "@franciscokloganb/countries",
   "repository": {
     "type": "git",
     "url": "git://github.com/franciscokloganb/countries.git"
