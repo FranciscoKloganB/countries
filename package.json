@@ -86,5 +86,5 @@
     "up:install": "taze major --install && npx taze -w && npm i"
   },
   "type": "module",
-  "version": "1.0.2"
+  "version": "1.0.3"
 }
