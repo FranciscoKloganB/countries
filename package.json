@@ -3,17 +3,21 @@
   "description": "Provide all countries with their flag emoji, flag svg and dial number code.",
   "author": "franciscokloganb",
   "exports": {
-    "require": "./dist/index.js",
-    "default": "./dist/index.modern.mjs"
+    ".": {
+      "import": "./dist/index.esm.js",
+      "node": "./dist/index.cjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.esm.js",
+      "types": "./dist/index.d.ts"
+    }
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.esm.js",
+  "unpkg": "./dist/index.umd.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "main": "./dist/index.js",
-  "source": "./index.ts",
-  "types": "./dist/index.d.ts",
-  "unpkg": "./dist/index.umd.js",
-  "module": "./dist/index.module.js",
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
@@ -63,7 +67,8 @@
     "auth:npm": "npm-cli-login -u $NPM_USER -p $NPM_PASS -e $NPM_EMAIL -r $NPM_REGISTRY -s $NPM_SCOPE",
     "postauth:npm": "cat ~/.npmrc",
     "prebuild": "rimraf dist",
-    "build": "microbundle && cp -r ./assets ./dist/assets",
+    "build": "microbundle",
+    "postbuild": "cp -r ./assets ./dist/assets",
     "cop": "run-s format eslint test:ci",
     "dev": "microbundle watch",
     "eslint": "eslint --fix --ext \"**/*.{js,jsx,ts,tsx}\"",
