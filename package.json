@@ -77,6 +77,7 @@
     "postpack": "pinst --enable",
     "tidy": "biome check --apply --formatter-enabled=true --linter-enabled=true --organize-imports-enabled=true --no-errors-on-unmatched .",
     "tidy:ci": "biome ci --no-errors-on-unmatched .",
+    "typecheck": "tsc -b",
     "up": "taze",
     "up:patch": "taze patch --install && npx taze -w && npm i",
     "up:minor": "taze minor --install && npx taze -w && npm i",
