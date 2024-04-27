@@ -11,7 +11,7 @@ const config: JestConfigWithTsJest = {
   transform: {
     '^.+\\.(t|j)s$': 'ts-jest',
   },
-  collectCoverageFrom: ['src/**/*.(t|j)s', '!src/index.ts'],
+  collectCoverageFrom: ['src/**/*.(t|j)s', '!src/index.ts', '!src/svg/index.ts'],
   coverageDirectory: '../coverage',
   coverageThreshold: {
     global: {
