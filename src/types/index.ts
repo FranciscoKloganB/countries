@@ -1,20 +1,20 @@
 interface ICountry {
-  areaCodes?: string[]
-  code: string
-  countryCode?: string
-  dialCode: string
-  flag: string
-  name: string
-  preferred?: boolean
-  secondary?: boolean
+  areaCodes?: string[];
+  code: string;
+  countryCode?: string;
+  dialCode: string;
+  flag: string;
+  name: string;
+  preferred?: boolean;
+  secondary?: boolean;
 }
 
 interface ICountryFlagSVG {
-  [key: string]: string
+  [key: string]: string;
 }
 
 interface IFilterOption {
-  withSecondary: boolean
+  withSecondary: boolean;
 }
 
-export { ICountry, ICountryFlagSVG, IFilterOption }
+export type { ICountry, ICountryFlagSVG, IFilterOption };

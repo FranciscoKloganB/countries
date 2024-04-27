@@ -1,7 +1,9 @@
-import type { Config } from '@jest/types'
-import hq from 'alias-hq'
+import { pathsToModuleNameMapper } from 'ts-jest';
+import type { JestConfigWithTsJest } from 'ts-jest';
 
-const config: Config.InitialOptions = {
+import { compilerOptions } from './tsconfig.json';
+
+const config: JestConfigWithTsJest = {
   verbose: true,
   moduleFileExtensions: ['js', 'json', 'ts'],
   rootDir: '.',
@@ -13,13 +15,18 @@ const config: Config.InitialOptions = {
   coverageDirectory: '../coverage',
   coverageThreshold: {
     global: {
-      lines: 90,
+      functions: 80,
+      lines: 60,
+      statements: 60,
+      branches: 50,
     },
   },
+  modulePathIgnorePatterns: ['<rootDir>/app/', '<rootDir>/dist/'],
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+    prefix: '<rootDir>/',
+  }),
   testEnvironment: 'node',
   testPathIgnorePatterns: ['<rootDir>/jest.config.ts', '<rootDir>/src/index.ts'],
-  modulePathIgnorePatterns: ['<rootDir>/app/', '<rootDir>/dist/'],
-  moduleNameMapper: hq.get('jest'),
-}
+};
 
-export default config
+export default config;

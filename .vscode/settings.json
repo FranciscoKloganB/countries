@@ -1,12 +1,30 @@
 {
-  "editor.rulers": [88],
-  "editor.autoClosingQuotes": "always",
+  "editor.autoClosingQuotes": "beforeWhitespace",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit",
+    "quickfix.biome": "explicit"
+  },
+  "editor.defaultFormatter": "biomejs.biome",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.insertSpaces": true,
   "editor.quickSuggestions": {
-    "strings": true // forces VS Code to trigger completions when editing "string"
+    "strings": true
   },
-  "prettier.enable": true,
-  "prettier.configPath": ".prettierrc",
+  "editor.rulers": [88],
+  "editor.tabSize": 2,
+  "files.associations": {
+    ".env.*": "properties"
+  },
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": ".github/workflows/*"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
 }

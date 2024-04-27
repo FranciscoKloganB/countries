@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: ["20.10"]
+        node: ["22.0"]
         os: [ubuntu-latest]
 
     steps:
@@ -24,11 +24,8 @@ jobs:
       - name: Scan Vulnerabilities
         run: npm audit --production
 
-      - name: Format
-        run: npm run format
-
-      - name: Lint
-        run: npm run eslint
+      - name: Lint and Format Check
+        run: npm run tidy:ci
 
       - name: Test Unit
         run: npm run test:ci

@@ -25,7 +25,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           cache: npm
-          node-version: 20.10
+          node-version: 22
           registry: https://registry.npmjs.org/
 
       - name: Install dependencies
@@ -37,4 +37,5 @@ jobs:
       - name: Publish
         run: npm publish
         env:
+          # Replace NPM_AUTH_TOKEN with GITHUB_TOKEN if hosting package privatly in GitHub registry
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}

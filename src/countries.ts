@@ -1,4 +1,4 @@
-import { ICountry } from './types'
+import type { ICountry } from './types';
 
 const countries: Readonly<ICountry[]> = Object.freeze([
   { name: 'Afghanistan', dialCode: '+93', code: 'AF', flag: '🇦🇫' },
@@ -348,6 +348,6 @@ const countries: Readonly<ICountry[]> = Object.freeze([
   { name: 'Zambia', dialCode: '+260', code: 'ZM', flag: '🇿🇲' },
   { name: 'Zimbabwe', dialCode: '+263', code: 'ZW', flag: '🇿🇼' },
   { name: 'Åland Islands', dialCode: '+358', code: 'AX', flag: '🇦🇽' },
-])
+]);
 
-export { countries }
+export { countries };

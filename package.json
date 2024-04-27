@@ -19,6 +19,7 @@
     "dist"
   ],
   "devDependencies": {
+    "@biomejs/biome": "^1.7.1",
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
@@ -46,7 +47,7 @@
     "size-limit": "^11.0.1",
     "standard-version": "^9.5.0",
     "start-server-and-test": "^2.0.3",
-    "taze": "^0.13.1",
+    "taze": "^0.13.7",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.2",
     "tslib": "^2.6.2",
@@ -69,10 +70,12 @@
     "prebuild": "rimraf dist",
     "build": "microbundle",
     "postbuild": "cp -r ./assets ./dist/assets",
-    "cop": "run-s format eslint test:ci",
+    "cop": "run-s tidy:ci test:ci",
     "dev": "microbundle watch",
-    "eslint": "eslint --fix --ext \"**/*.{js,jsx,ts,tsx}\"",
-    "format": "prettier --write \"{*,{src,test}/**/*}.+(css|json|js|jsx|ts|tsx)\"",
+    "format:fix": "biome format --write .",
+    "format": "biome format .",
+    "lint:fix": "biome lint --apply .",
+    "lint": "biome lint .",
     "prepare": "husky install && chmod ug+x .husky/*",
     "release": "standard-version",
     "size": "size-limit",
@@ -82,8 +85,12 @@
     "postrelease": "git push --follow-tags --no-verify && npm publish",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
-    "up": "taze major ",
-    "up:install": "taze major --install && npx taze -w && npm i"
+    "tidy": "biome check --apply --formatter-enabled=true --linter-enabled=true --organize-imports-enabled=true --no-errors-on-unmatched .",
+    "tidy:ci": "biome ci --no-errors-on-unmatched .",
+    "up": "taze",
+    "up:patch": "taze patch --install && npx taze -w && npm i",
+    "up:minor": "taze minor --install && npx taze -w && npm i",
+    "up:major": "taze major --install && npx taze -w && npm i"
   },
   "type": "module",
   "version": "1.0.3"
