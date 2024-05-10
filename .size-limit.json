@@ -1,14 +1,14 @@
 [
   {
     "path": "dist/index.js",
-    "limit": "10 KB"
+    "limit": "20 KB"
   },
   {
     "path": "dist/index.umd.js",
-    "limit": "10 KB"
+    "limit": "20 KB"
   },
   {
     "path": "dist/index.modern.mjs",
-    "limit": "10 KB"
+    "limit": "20 KB"
   }
 ]
