@@ -15,9 +15,7 @@
   "module": "./dist/index.esm.js",
   "unpkg": "./dist/index.umd.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "devDependencies": {
     "@biomejs/biome": "^1.7.3",
     "@commitlint/cli": "^19.3.0",
@@ -64,7 +62,7 @@
     "postbuild": "cp -r ./assets ./dist/assets",
     "dev": "microbundle watch",
     "prepare": "husky install && chmod ug+x .husky/*",
-    "release": "standard-version",
+    "release": "commit-and-tag-version",
     "size": "size-limit",
     "test": "jest --watch",
     "test:ci": "jest --ci --coverage --maxWorkers=50%",
@@ -73,7 +71,7 @@
     "postrelease": "git push --follow-tags --no-verify && npm publish",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
-    "typecheck": "tsc -b",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
     "up": "taze",
     "up:patch": "taze patch --install && npx taze -w && npm i",
     "up:minor": "taze minor --install && npx taze -w && npm i",
