@@ -10,18 +10,7 @@
     "enabled": true
   },
   "files": {
-    "include": [
-      "src",
-      "test",
-      "*.js",
-      "*.cjs",
-      "*.mjs",
-      "*.ts",
-      "*.cts",
-      "*.mts",
-      "*.json",
-      "*.md"
-    ]
+    "include": ["src", "test", "*.js", "*.cjs", "*.mjs", "*.ts", "*.cts", "*.mts", "*.json", "*.md"]
   },
   "formatter": {
     "enabled": true,
